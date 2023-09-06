@@ -1,0 +1,29 @@
+.header {
+  background-color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 200px;
+}
+
+.title {
+  display: flex;
+}
+
+.title h1 {
+  font-size: 40px;
+  font-style: normal;
+}
+
+.title h1:first-child {
+  color: var(--blue);
+}
+
+.title h1:last-child {
+  color: var(--purple-dark);
+}
+
+.header img {
+  padding-top: 10px;
+}
