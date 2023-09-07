@@ -1,17 +1,38 @@
+import { PlusCircle } from '@phosphor-icons/react';
 import styles from './Header.module.css';
 
-import rocketIcon from '@/assets/rocket.svg';
+import todoLogo from '@/assets/Logo.svg';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-function Header() {
+interface HeaderProps {
+  onAddTask: (taskTitle: string) => void;
+}
+
+function Header({ onAddTask }: HeaderProps) {
+  const [title, setTitle] = useState('');
+
+  function handleOnChangeTitle(event: ChangeEvent<HTMLInputElement>) {
+    setTitle(event.target.value);
+  }
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    onAddTask(title);
+  }
+
   return (
     <header className={styles.header}>
-      <img src={rocketIcon} />
-      <div className={styles.title}>
-        <h1>to</h1>
-        <h1>do</h1>
-      </div>
+      <img src={todoLogo} />
+
+      <form className={styles.taskForm} onSubmit={handleSubmit}>
+        <input value={title} onChange={handleOnChangeTitle} placeholder="Adicione uma nova tarefa" />
+        <button>
+          Criar
+          <PlusCircle size={18} weight="bold" />
+        </button>
+      </form>
     </header>
   );
 }
+
 
 export default Header;

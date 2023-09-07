@@ -19,16 +19,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  color: var(--gray-300);
-  background-color: var(--gray-600);
+  background: var(--gray-600);
+  color: var(--gray-100);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+button {
+  cursor: pointer;
 }

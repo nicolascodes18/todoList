@@ -1,17 +1,27 @@
-import styles from './App.module.css';
+import { useState } from 'react';
 import Header from './components/Header';
-import TaskBar from './components/Taskbar';
+import Tasks, { ITasks } from './components/Tasks';
 import './global.css';
 
 function App() {
-  return (
-    <div>
-      <Header />
+  const [tasks, setTasks] = useState<ITasks[]>([]);
 
-      <div className={styles.wrapper}>
-        <TaskBar />
-      </div>
-    </div>
+  function addTask(taskTitle: string) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: taskTitle,
+        isComplete: false,
+      },
+    ]);
+  }
+
+  return (
+    <>
+      <Header onAddTask={addTask} />
+      <Tasks tasks={tasks} />
+    </>
   );
 }
 
