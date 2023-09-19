@@ -19,14 +19,25 @@
   margin-right: auto;
 }
 
-.taskCheckButton {
+p.textIsCompleted {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.taskCheckContainer {
   min-width: 1.125rem;
   height: 1.125rem;
   background: none;
   border: none;
 }
 
-.taskCheckButton div {
+.taskCheckContainer svg {
+     width: 100%;
+    height: 100%;
+    color: var(--purple);
+}
+
+.taskCheckContainer div {
   width: 100%;
   height: 100%;
   border: 2px solid var(--blue);
